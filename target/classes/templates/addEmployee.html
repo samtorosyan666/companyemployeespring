@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Employee</title>
+    <link rel="stylesheet" type="text/css" href="css/companyAdd.css">
+</head>
+<body style="background-color: #fffcfc;">
+<form class="addCompanyForm" action="/addEmployee" method="post">
+    <input type="text" placeholder="name" name="name" class="input"><br>
+    <input type="text" placeholder="surname" name="surname" class="input"><br>
+    <input type="text" placeholder="email" name="email" class="input"><br>
+    <input type="text" placeholder="phoneNumber" name="phoneNumber" class="input"><br>
+    <input type="text" placeholder="salary" name="salary" class="input"><br>
+    <input type="text" placeholder="position" name="position" class="input"><br>
+    <input type="password" placeholder="password" name="password" class="input"><br>
+    <select name="employeeType">
+        <option value="USER">USER</option>
+        <option value="ADMIN">ADMIN</option>
+    </select>
+    <span style="color: red">Company where you are working</span>
+    <select class="input" name="company.id">
+        <option th:each="company:${companies}" th:text="${company.name}" th:value="${company.id}"></option>
+    </select><br>
+    <input type="submit" value="add" class="companySubmit">
+</form>
+</body>
+</html>

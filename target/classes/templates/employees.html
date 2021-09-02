@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employees</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<a href="/logout">Logout</a>
+
+<div class="employeesTable">
+    <a href="/" style="color: red">Index Page</a> | <span style="color:red;">Employees</span> | <a href="/addEmployee"
+                                                                                                   style="border: red; color: red">
+    Add Employee </a>
+    |<a href="/sendMessage" style="border: red; color: red"> Send Message </a> | <a href="/allMessages"
+                                                                                    style="border: red; color: red">
+    View all messages </a>   |  <a href="/topics"
+                                   style="border: red; color: red">Topics </a> |
+    <table border="1">
+
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>surname</th>
+            <th>email</th>
+            <th>phoneNumber</th>
+            <th>salary</th>
+            <th>position</th>
+            <th>company</th>
+        </tr>
+
+
+        <tr th:each="employee:${employees}">
+            <td th:text="${employee.id}"></td>
+            <td th:text="${employee.name}"></td>
+            <td th:text="${employee.surname}"></td>
+            <td th:text="${employee.email}"></td>
+            <td th:text="${employee.phoneNumber}"></td>
+            <td th:text="${employee.salary}"></td>
+            <td th:text="${employee.position}"></td>
+            <td th:text="${employee.company.name}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
