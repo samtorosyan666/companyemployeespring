@@ -6,27 +6,28 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+<div th:include="/fragments/header:: lang"></div>
 <a href="/logout">Logout</a>
 
 <div class="employeesTable">
-    <a href="/" style="color: red">Index Page</a> | <span style="color:#000000;">Employees</span> | <a href="/addEmployee"
-                                                                                                       style="border: #000000; color: #070000">
-    Add Employee </a>
-    |<a href="/sendMessage" style="border: red; color: red"> Send Message </a> | <a href="/allMessages"
-                                                                                    style="border: red; color: red">
-    View all messages </a>   |  <a href="/topics"
-                                   style="border: red; color: red">Topics </a> |
+    <a th:text="#{companies.home.page}" href="/" style="color: #000000">Home Page</a> | <span th:text="#{index.employees}" style="color:#000000;">Employees</span> | <a th:text="#{employees.add.employee}" href="/addEmployee"
+                                                                                                           style="border: #000000; color: #070000">
+    Add employee </a>
+    |<a th:text="#{employees.send.message}" href="/sendMessage" style="border: #000000; color: #000000"> Send message </a> | <a th:text="#{employees.all.messages}" href="/allMessages"
+                                                                                            style="border: #000000; color: #000000">
+    All messages </a>   |  <a th:text="#{employees.topics}" href="/topics"
+                                   style="border: #030000; color: #020000">Topics </a> |
     <table border="1">
 
         <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>surname</th>
-            <th>email</th>
-            <th>phoneNumber</th>
-            <th>salary</th>
-            <th>position</th>
-            <th>company</th>
+            <th th:text="#{companies.id}">Id</th>
+            <th th:text="#{companies.name}" >Name</th>
+            <th th:text="#{employees.surname}">Surname</th>
+            <th th:text="#{employees.email}">Email</th>
+            <th th:text="#{employees.phone.number}">Phone number</th>
+            <th th:text="#{employees.salary}">Salary</th>
+            <th th:text="#{employees.position}">Position</th>
+            <th th:text="#{companies.companies}">Companies</th>
         </tr>
 
 
