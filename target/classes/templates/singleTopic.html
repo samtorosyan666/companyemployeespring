@@ -9,7 +9,7 @@
     <h3 th:text="${topic.name}"></h3>
 
 <table border="1px">
-<tr th:each="comment:${comments}" style="border: red">
+<tr th:each="comment:${comments}" style="border: #000000">
     <td th:text="${comment.text}"></td>
     <td th:text="${comment.createdDate}"></td>
     <td th:text="${comment.employee.name}"></td>

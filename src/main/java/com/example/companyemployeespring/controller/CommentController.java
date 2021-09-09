@@ -3,8 +3,8 @@ import com.example.companyemployeespring.model.Comment;
 import com.example.companyemployeespring.model.Employee;
 import com.example.companyemployeespring.security.CurrentUser;
 import com.example.companyemployeespring.service.CommentService;
-import com.example.companyemployeespring.service.TopicService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,16 +18,17 @@ import java.util.Date;
 
 @Controller
 @RequiredArgsConstructor
+@Slf4j
 public class CommentController {
 
     private final CommentService commentService;
-    private final TopicService topicService;
 
     @PostMapping("/addComment")
     public String addComment(@ModelAttribute Comment comment, @AuthenticationPrincipal CurrentUser currentUser) throws ParseException {
         comment.setEmployee(currentUser.getEmployee());
         comment.setCreatedDate(new Date());
         commentService.saveComment(comment);
+        log.info("User with {} username added comment {}", currentUser.getEmployee().getEmail(), comment.getText());
         return "redirect:/topics/" + comment.getTopic().getId();
     }
 
@@ -38,7 +39,6 @@ public class CommentController {
 
         if (currentUser.getEmployee().getId() == employee.getId()){
             commentService.deleteCommentById(id);
-
         }
         return "redirect:/topics/" + comment.getTopic().getId();
 }

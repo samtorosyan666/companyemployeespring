@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body style="background-image: url('/image/nature.jpeg')">
-<a href="/login">Login</a>
+<div th:include="/fragments/header:: lang"></div>
+<a th:text="#{index.login}" href="/login">Login</a>
 <ul class="list">
-    <li><a href="/companies">Companies</a></li>
-    <li><a href="/employees">Employees</a></li>
+    <li><a th:text="#{index.companies}" href="/companies">Companies</a></li>
+    <li><a th:text="#{index.employees}" href="/employees">Employees</a></li>
 </ul>
 </body>
 </html>

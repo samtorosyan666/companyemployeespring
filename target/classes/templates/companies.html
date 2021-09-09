@@ -6,20 +6,21 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-<a href="/logout">Logout</a>
+<div th:include="/fragments/header:: lang"></div>
+<a th:text="#{companies.logout}" href="/logout">Logout</a>
 
 <div class="table">
-    <a href="/" style="color: red">Index Page</a> | <span style="color:red;">Companies</span> |
-    <a  th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}" href="/addCompany"> AddCompany </a>
+    <a th:text="#{companies.home.page}" href="/" style="color: #000000">Home Page</a> | <span th:text="#{companies.companies}" style="color:#100000;">Companies</span> |
+    <a th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}" th:text="#{companies.add.company}"  href="/addCompany"> Add company </a>
 
     <table border="1">
 
         <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>size</th>
-            <th>address</th>
-            <th>action</th>
+            <th th:text="#{companies.id}">id</th>
+            <th th:text="#{companies.name}">name</th>
+            <th th:text="#{companies.size}">size</th>
+            <th th:text="#{companies.address}">address</th>
+            <th th:text="#{companies.action}">action</th>
         </tr>
         <tr th:each="company:${companies}">
             <td th:text="${company.id}"></td>

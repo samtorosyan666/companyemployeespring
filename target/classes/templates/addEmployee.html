@@ -18,7 +18,7 @@
         <option value="USER">USER</option>
         <option value="ADMIN">ADMIN</option>
     </select>
-    <span style="color: red">Company where you are working</span>
+    <span style="color: #100000">Company where the employee is working</span>
     <select class="input" name="company.id">
         <option th:each="company:${companies}" th:text="${company.name}" th:value="${company.id}"></option>
     </select><br>

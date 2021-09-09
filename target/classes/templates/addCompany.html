@@ -6,12 +6,12 @@
     <link rel="stylesheet" type="text/css" href="css/companyAdd.css">
 </head>
 <body style="background-color: #ffffff;">
-
+<div th:include="/fragments/header:: lang"></div>
 <form class="addCompanyForm" action="/addCompany" method="post">
     <input type="text" placeholder="name" name="name" class="input"><br>
     <input type="text" placeholder="size" name="size" class="input"><br>
     <input type="text" placeholder="address" name="address" class="input"><br>
-    <input type="submit" value="add" class="companySubmit">
+    <input th:text="#{messages.add}" type="submit" value="add" class="companySubmit">
 </form>
 </body>
 </html>

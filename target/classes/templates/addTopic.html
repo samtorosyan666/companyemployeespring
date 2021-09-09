@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Add Topic</title>
     <link rel="stylesheet" type="text/css" href="css/companyAdd.css">
 </head>
 <body style="background-color: #ffffff;">
-
+<div th:include="/fragments/header:: lang"></div>
 <form class="addCompanyForm" action="/addTopic" method="post">
     <input type="text" placeholder="your topic" name="name" class="input"><br>
-    <input type="submit" value="add" class="companySubmit">
+    <input th:text="#{messages.add}" type="submit" value="add" class="companySubmit">
 </form>
 </body>
 </html>

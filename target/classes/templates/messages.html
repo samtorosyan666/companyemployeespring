@@ -6,8 +6,9 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+<div th:include="/fragments/header:: lang"></div>
 <div class="employeesTable">
-    <a href="/" style="color: red">Index Page</a> | <span style="color:red;">SendMessages</span>
+    <a th:text="#{companies.home.page}" href="/" style="color: #000000">Home page</a> | <span th:text="#{employees.send.message}" style="color:#000000;">Send messages</span>
 
     <form class="addCompanyForm" action="/sendMessage" method="post">
         <textarea name="letter" ></textarea><br>
@@ -15,7 +16,7 @@
             <option th:each="employee: ${employees}" th:text="${employee.name}" th:value="${employee.id}"></option>
         </select>
         <br>
-        <input type="submit" value="add" class="companySubmit">
+        <input th:text="#{messages.add}" type="submit" value="Add" class="companySubmit">
     </form>
 </div>
 </body>
