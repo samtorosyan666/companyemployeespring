@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -29,6 +30,10 @@ public class Employee {
     private Company company;
 
     @Enumerated(value = EnumType.STRING)
+
     private EmployeeType employeeType;
+    private boolean isEmailVerified;
+
+    private UUID token;
 
 }
